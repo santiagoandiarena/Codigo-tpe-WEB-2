@@ -26,15 +26,33 @@ switch ($params[0]) {
         $controller->showAbout();
         break;
 
-        case 'categorias':
-            $controller = new CategoriasController();
-            $controller->mostrarcategorias();
-            break;
+    case 'categorias':
+        $controller = new CategoriasController();
+        $controller->mostrarcategorias();
+        break;
 
-        case 'productosxcategorias':
-          
-            $controller =new CategoriasController();
-            $controller->productosxcategorias($params[1]);
+    case 'productosxcategorias':
+
+        $controller = new CategoriasController();
+        $controller->productosxcategorias($params[1]);
+        break;
+
+    case 'addcategorias':
+        $controller = new CategoriasController();
+        $controller->agregarcategorias();
+        break;
+
+    case 'agregarcategorias':
+        $controller = new CategoriasController();
+        $controller->vercategoriasagregadas();
+        break;
+    case 'editarcategorias':
+        $controller = new CategoriasController();
+        $controller->editarcategorias($params[1]);
+        break;
+    case 'categoriaseditadas':
+        $controller = new CategoriasController();
+        $controller->editarcategorias();
         break;
     default:
         echo "404 Page Not Found"; // está mal

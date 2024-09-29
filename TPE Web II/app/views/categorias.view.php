@@ -17,4 +17,9 @@ class CategoriasVista {
 
         
     }
+
+    function agregarcategorias(){
+
+        require 'templates/añadir.categorias.phtml';
+    }
      }
