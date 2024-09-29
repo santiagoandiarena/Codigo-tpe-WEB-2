@@ -1,0 +1,61 @@
+<?php  require_once 'templates/layout/header.phtml' ?>
+
+
+
+
+
+ 
+<div class="container mt-5">
+    <h1>Selecciona una marca</h1>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Marcas
+        </button>
+        
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <?php foreach($categorias as $categoria): ?>
+                <a class="dropdown-item" href="productosxcategorias/<?= $categoria->ID_categoria ?>"> <?= $categoria->marca ?> </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+        
+               
+  
+            <div class="container mt-5">
+    <h1>Selecciona una categoría</h1>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorías
+        </button>
+        
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <?php foreach($categorias as $categoria): ?>
+                <a class="dropdown-item" href="productosxcategorias/<?= $categoria->ID_categoria ?>"> <?= $categoria->temporada ?> </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container mt-5">
+    <h1>Tipo de prenda</h1>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Prenda
+        </button>
+        
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <?php foreach($categorias as $categoria): ?>
+                <a class="dropdown-item" href="productosxcategorias/<?= $categoria->ID_categoria ?>"> <?= $categoria->nombre?> </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+
+
+
+<?php require_once 'templates/layout/footer.phtml'?>

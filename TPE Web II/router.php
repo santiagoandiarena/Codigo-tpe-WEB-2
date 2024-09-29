@@ -1,6 +1,7 @@
 <?php
 
 require_once 'app/controllers/ropa.controller.php';
+require_once 'app/controllers/categorias.controller.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -23,6 +24,17 @@ switch ($params[0]) {
     case 'about':
         $controller = new RopaController();
         $controller->showAbout();
+        break;
+
+        case 'categorias':
+            $controller = new CategoriasController();
+            $controller->mostrarcategorias();
+            break;
+
+        case 'productosxcategorias':
+          
+            $controller =new CategoriasController();
+            $controller->productosxcategorias($params[1]);
         break;
     default:
         echo "404 Page Not Found"; // está mal

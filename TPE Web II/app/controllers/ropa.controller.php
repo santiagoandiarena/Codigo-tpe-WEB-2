@@ -1,7 +1,7 @@
 <?php
 
-require_once './app/models/ropa.model.php';
-require_once './app/views/ropa.view.php';
+require_once 'app/models/ropa.model.php';
+require_once 'app/views/ropa.view.php';
 
 class RopaController {
     private $model;
