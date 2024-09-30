@@ -52,7 +52,7 @@ switch ($params[0]) {
         break;
     case 'categoriaseditadas':
         $controller = new CategoriasController();
-        $controller->editarcategorias();
+        $controller->categoriaseditadas();
         break;
     default:
         echo "404 Page Not Found"; // está mal

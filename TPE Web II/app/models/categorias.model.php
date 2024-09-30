@@ -44,7 +44,8 @@ WHERE categoria.ID_categoria = ?  ');
     }
 
     public function editarcategorias($nombre,$genero,$temporada,$marca) {
-        $query = $this->db->prepare('UPDATE album SET nombre = ?, genero = ?, temporada = ?, marca = ? WHERE id = ?');
+        $this->db = $this->connect();
+        $query = $this->db->prepare('UPDATE categoria SET nombre = ?, genero = ?, temporada = ?, marca = ? WHERE ID_categoria = ?');
         $query->execute([$nombre,$genero,$temporada,$marca]);
     }
 }

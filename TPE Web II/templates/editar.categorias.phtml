@@ -1,13 +1,11 @@
 <?php require_once 'templates/layout/header.phtml'; ?>
 
-<?php
-?>
 
-
-
+<?php $categoria = $categorias[0]; // Accede a la primera categoría ?>
 <div class="container mt-5">
     <h2 class="text-center">editar Categorías</h2>
-    <form action="editarcategorias/<?= $categorias->$ID_categoria ?>" method="POST">
+    <form action="editarcategorias/<?= $categoria->ID_categoria ?>" method="POST">
+
         <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" name="nombre" id="nombre" required>

@@ -78,12 +78,18 @@ class CategoriasController
         if (empty($nombre) || empty($genero) || empty($temporada) || empty($marca)) {
             echo "no estan todos los datos";
         } else {
-            $this->model->agregarcategorias($nombre, $genero, $temporada, $marca);
+            $this->model->editarcategorias($nombre, $genero, $temporada, $marca);
             header("Location:" . BASE_URL . "home");
 
         }
 
 
+
+    }
+
+    function categoriaseditadas(){
+        $categorias = $this->model->obtenercategorias();
+        $this->view->mostrarcategoriaseditadas($categorias);
 
     }
 
