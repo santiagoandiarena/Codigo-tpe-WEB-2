@@ -1,0 +1,72 @@
+<?php require_once 'templates/layout/header.phtml'; ?>
+
+<?php
+?>
+
+<h2 class="text-center"><a href="categoriaseditadas">Editar categorias</a></h2>
+<div class="container mt-5">
+    <h2 class="text-center">Agregar Categorías</h2>
+    <form action="addcategorias" method="POST">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" required>
+        </div>
+
+        <div class="form-group">
+            <label for="genero">Género</label>
+            <input type="text" class="form-control" name="genero" id="genero" required>
+        </div>
+
+        <div class="form-group">
+            <label for="temporada">Temporada</label>
+            <input type="text" class="form-control" name="temporada" id="temporada" required>
+        </div>
+
+        <div class="form-group">
+            <label for="marca">Marca</label>
+            <input type="text" class="form-control" name="marca" id="marca" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+    </form>
+</div>
+
+
+<h2 class="text-center">Lista de todas las categorias</h2>
+
+<?php foreach ($categorias as $categoria):?>
+<ul>
+    <li><?=$categoria->nombre?></li>
+</ul>
+<?php endforeach;?>
+
+
+
+
+<table > <!-- Agrega border para mostrar bordes -->
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Género</th>
+            <th>Marca</th>
+            <th>Temporada</th>
+            <th> Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($categorias as $categoria): ?>
+            <tr>
+                <td><?= $categoria->nombre ?></td>
+                <td><?= $categoria->genero ?></td>
+                <td><?= $categoria->marca ?></td>
+                <td><?= $categoria->temporada ?></td>
+                <td>
+            <button type="submit" class="btn btn-success"><a href="categoriaseditadas">Editar</a></button>
+        </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+
+<?php require_once 'templates/layout/footer.phtml'; ?>
