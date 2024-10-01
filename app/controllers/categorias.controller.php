@@ -69,16 +69,14 @@ class CategoriasController
     {
 
         $nombre = $_POST['nombre'];
-        $genero = $_POST['genero'];
-        $temporada = $_POST['temporada'];
-        $marca = $_POST['marca'];
+      
 
 
 
-        if (empty($nombre) || empty($genero) || empty($temporada) || empty($marca)) {
+        if (empty($nombre) ) {
             echo "no estan todos los datos";
         } else {
-            $this->model->editarcategorias($nombre, $genero, $temporada, $marca);
+            $this->model->editarcategorias($nombre);
             header("Location:" . BASE_URL . "home");
 
         }
