@@ -32,16 +32,19 @@ switch ($params[0]) {
         break;
 
     case 'productosxcategorias':
-
         $controller = new CategoriasController();
         $controller->productosxcategorias($params[1]);
         break;
-
+    case 'addarticulo':
+        $controller = new RopaController();
+        $controller->agregararticulo();
+    case 'eliminar':
+        $controller = new RopaController();
+        $controller->eliminarArticulo($params[1]);
     case 'addcategorias':
         $controller = new CategoriasController();
         $controller->agregarcategorias();
         break;
-
     case 'agregarcategorias':
         $controller = new CategoriasController();
         $controller->vercategoriasagregadas();

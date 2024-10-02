@@ -34,15 +34,10 @@ class CategoriasController
 
     function agregarcategorias()
     {
-
-
-
         $nombre = $_POST['nombre'];
         $genero = $_POST['genero'];
         $temporada = $_POST['temporada'];
         $marca = $_POST['marca'];
-
-
 
         if (empty($nombre) || empty($genero) || empty($temporada) || empty($marca)) {
             echo "no estan todos los datos";
@@ -51,15 +46,9 @@ class CategoriasController
             header("Location:" . BASE_URL . "home");
 
         }
-
-
-
-
-
     }
     function vercategoriasagregadas()
     {
-
         $categorias = $this->model->obtenercategorias();
 
         $this->view->agregarcategorias($categorias);
