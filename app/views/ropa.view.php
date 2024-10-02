@@ -21,13 +21,7 @@ class RopaView
 
     }
 
-    public function addarticulo($articulo, $categorias){
-        require 'templates/mostrar_productos.phtml';
-    }
-
-    
     public function showError($error) {
         require 'templates/error.phtml';
     }
-
 }

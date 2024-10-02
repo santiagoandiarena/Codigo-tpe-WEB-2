@@ -13,11 +13,7 @@ class RopaModel
 
     public function getPrendas()
     {
-        $query = $this->db->prepare('
-            SELECT articulo.*, categoria.nombre AS categoria_nombre
-            FROM articulo
-            JOIN categoria ON articulo.ID_categoria = categoria.ID_categoria
-        ');
+        $query = $this->db->prepare('SELECT * FROM articulo');
         $query->execute();
 
         $prendas = $query->fetchAll(PDO::FETCH_OBJ);
@@ -35,16 +31,4 @@ class RopaModel
         return $prenda;
     }
 
-    public function eliminarPrenda($id){
-        $query = $this->db->prepare('DELETE FROM articulo WHERE ID_articulo = ?');
-        $query->execute([$id]);
-    }
-
-    function agregararticulo($nombre, $valor, $descripcion, $ID_categoria) {
-        $query = $this->db->prepare('INSERT INTO articulo (nombre, valor, descripcion, ID_categoria) VALUES (?, ?, ?, ?)');
-        $query->execute([$nombre, $valor, $descripcion, $ID_categoria]); // Incluye la categoría en el insert
-    
-        return $this->db->lastInsertId();
-    }
-    
 }

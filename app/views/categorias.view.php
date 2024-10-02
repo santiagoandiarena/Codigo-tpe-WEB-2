@@ -23,8 +23,5 @@ class CategoriasVista {
         require 'templates/añadir.categorias.phtml';
     }
 
-    function mostrarcategoriaseditadas($categorias){
-       
-        require 'templates/editar.categorias.phtml';
-    }
+   
      }
