@@ -38,7 +38,7 @@ switch ($params[0]) {
     case 'addarticulo':
         $controller = new RopaController();
         $controller->agregararticulo();
-    case 'eliminar':
+    case 'eliminarArticulo':
         $controller = new RopaController();
         $controller->eliminarArticulo($params[1]);
     case 'addcategorias':
