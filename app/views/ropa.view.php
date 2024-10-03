@@ -21,7 +21,6 @@ class RopaView
 
     }
 
-<<<<<<< HEAD
     public function addarticulo($articulo, $categorias){
         require 'templates/mostrar_productos.phtml';
     }
@@ -30,8 +29,6 @@ class RopaView
         require 'templates/editar_articulo.phtml';
     }
     
-=======
->>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44
     public function showError($error) {
         require 'templates/error.phtml';
     }
