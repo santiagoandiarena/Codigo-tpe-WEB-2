@@ -1,45 +1,48 @@
 <?php
 
 require_once 'app/models/ropa.model.php';
-require_once 'app/models/categorias.model.php';
 require_once 'app/views/ropa.view.php';
 
-class RopaController
-{
+class RopaController {
     private $model;
     private $view;
-    private $modelCategoria;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->model = new RopaModel();
         $this->view = new RopaView();
-        $this->modelCategoria = new obtenercategorias();
     }
 
     //METODOS
 
-    public function showHome()
-    {
+    public function showHome(){
 
+<<<<<<< HEAD
+=======
+     // PREGUNTAR COMO SE HACEN LAS VALIDACIONES 
+>>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44
         $prendas = $this->model->getPrendas();
         $categorias = $this->modelCategoria->obtenercategorias();
 
         //$this->view->addarticulo($prendas, $categorias);
         $this->view->showHome($prendas, $categorias);
 
+<<<<<<< HEAD
+=======
+        $this->view->showHome($prendas);
+
+>>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44
     }
 
-    public function showProduct($id)
-    {
+    public function showProduct($id) {
         $prenda = $this->model->getPrenda($id); // devuelve una única prenda
-
+    
         if (!empty($prenda)) {
             $this->view->showProduct($prenda); // Pasa la primera (y única) prenda
         } else {
             echo "Producto no encontrado";
         }
     }
+<<<<<<< HEAD
 
     public function agregararticulo()
     {
@@ -96,6 +99,13 @@ class RopaController
 
     public function showAbout()
     {
+=======
+    
+
+    public function showAbout(){
+
+>>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44
         $this->view->showAbout();
+
     }
 }

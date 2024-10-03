@@ -32,9 +32,11 @@ switch ($params[0]) {
         break;
 
     case 'productosxcategorias':
+
         $controller = new CategoriasController();
         $controller->productosxcategorias($params[1]);
         break;
+<<<<<<< HEAD
     case 'addarticulo':
         $controller = new RopaController();
         $controller->agregararticulo();
@@ -51,10 +53,14 @@ switch ($params[0]) {
         $controller = new RopaController();
         $controller->editarArticulo($params[1]);
         break;
+=======
+
+>>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44
     case 'addcategorias':
         $controller = new CategoriasController();
         $controller->agregarcategorias();
         break;
+
     case 'agregarcategorias':
         $controller = new CategoriasController();
         $controller->vercategoriasagregadas();
@@ -63,9 +69,17 @@ switch ($params[0]) {
         $controller = new CategoriasController();
         $controller->editarcategorias($params[1]);
         break;
+<<<<<<< HEAD
     case 'borrarcategoria':
         $controller = new CategoriasController();
         $controller->borrarcategoria($params[1]);
+=======
+    
+
+    case 'borrarcategoria':
+        $controller = new CategoriasController();
+        $controller->borrarcategorias($params[1]);
+>>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44
         break;
     default:
         echo "404 Page Not Found"; // está mal

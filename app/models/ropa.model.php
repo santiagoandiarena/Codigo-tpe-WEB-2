@@ -13,11 +13,7 @@ class RopaModel
 
     public function getPrendas()
     {
-        $query = $this->db->prepare('
-            SELECT articulo.*, categoria.nombre AS categoria_nombre
-            FROM articulo
-            JOIN categoria ON articulo.ID_categoria = categoria.ID_categoria
-        ');
+        $query = $this->db->prepare('SELECT * FROM articulo');
         $query->execute();
 
         $prendas = $query->fetchAll(PDO::FETCH_OBJ);
@@ -36,6 +32,7 @@ class RopaModel
         return $prenda;
     }
 
+<<<<<<< HEAD
     public function eliminarPrenda($id){
         $query = $this->db->prepare('DELETE FROM articulo WHERE ID_articulo = ?');
         $query->execute([$id]);
@@ -54,3 +51,6 @@ class RopaModel
 
     }
 }
+=======
+}
+>>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44

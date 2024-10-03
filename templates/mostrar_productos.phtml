@@ -10,16 +10,19 @@
                 <div class="col-md-6 mb-4">
                     <div class="row g-0 bg-body-secondary position-relative">
                         <div class="position-absolute top-50 start-50">
-                            <img src="" class="img-thumbnail" alt="...">
+                        <img src="" class="img-thumbnail" alt="...">
                         </div>
                         <div class="col-md-6 p-4 ps-md-0">
                             <h5 class="mt-0"><?= $prenda->nombre ?></h5>
                             <p><?= $prenda->descripcion ?></p>
                             <div>$<?= $prenda->valor ?></div>
                             <p><a href="producto/<?= $prenda->ID_articulo ?>" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ver</a></p>
+<<<<<<< HEAD
                             <p>Categoria: <?= $prenda->categoria_nombre ?></p>
                             <a href="mostrarFormEdicion/<?= $prenda->ID_articulo ?>" class="btn btn-success">Editar</a>
                             <a href="eliminarArticulo/<?= $prenda->ID_articulo ?>" class="btn btn-danger">Borrar</a>
+=======
+>>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44
                         </div>
                     </div>
                 </div>
@@ -28,6 +31,7 @@
     </div>
 </ul>
 
+<<<<<<< HEAD
 <p class="mt-3"><small>Mostrando <?= $count ?> prendas</small></p>
 
 <h2>Administrar articulos</h2>
@@ -64,5 +68,8 @@
 </div>
 
 
+=======
+<p class="mt-3"><small>Mostrando <?=$count?> prendas</small></p>
+>>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44
 
 <?php require_once 'templates/layout/footer.phtml' ?>

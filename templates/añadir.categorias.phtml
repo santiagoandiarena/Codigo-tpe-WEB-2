@@ -12,6 +12,11 @@
             <input type="text" class="form-control" name="nombre" id="nombre" required>
         </div>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44
         <button type="submit" class="btn btn-primary btn-block">Enviar</button>
     </form>
 </div>
@@ -38,6 +43,7 @@
             <?php foreach ($categorias as $categoria): ?>
                 <tr>
                     <td class="text-center"> <?= $categoria->nombre ?></td>
+<<<<<<< HEAD
                     <td class="text-center">
                         <div class="container mt-5">
                             <p>Formulario para editar nombre de la categoria</p>
@@ -59,4 +65,39 @@
     </table>
 
 
+=======
+
+                    <td class="text-center">
+
+
+                        <div class="container mt-5">
+                    <p>Formulario para editar nombre de la categoria</p>
+
+                            <form action="editarcategorias/<?= $categoria->ID_categoria ?>" method="POST">
+
+                                <div class="form-group">
+                                    
+                                   
+                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese el nuevo nombre para editar  (<?= $categoria->nombre ?> )" required>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-success">Editar</button>
+                            </form>
+                        </div>
+
+
+
+                    </td>
+                    <td class="text-center">
+                        <p>Usted va a borrar la categoria : <?= $categoria->nombre ?> </p>
+                        <a href="borrarcategoria/<?= $categoria->ID_categoria ?>" class="btn btn-danger">Borrar</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+
+>>>>>>> 5a12f6d3f1132e490c1f52f377d1e25517b8fc44
     <?php require_once 'templates/layout/footer.phtml'; ?>
