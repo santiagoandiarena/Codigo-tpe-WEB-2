@@ -16,15 +16,15 @@ class obtenercategorias
         $categorias = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $categorias;
-
     }
 
-    function obteneridcategorias(){
+    function obteneridcategorias()
+    {
 
         $query = $this->db->prepare('SELECT ID_categoria FROM categoria');
         $query->execute();
         $categoriasxid = $query->fetch(PDO::FETCH_OBJ);
-        
+
         return $categoriasxid;
     }
     function productosxcategorias($id)
@@ -44,7 +44,7 @@ class obtenercategorias
         $query = $this->db->prepare('INSERT INTO categoria (nombre) VALUES (?)');
         $query->execute([$nombre]);
 
-        return $this->db->lastInsertId();//me da el nuevo id ingresado
+        return $this->db->lastInsertId(); //me da el nuevo id ingresado
     }
 
     public function editarcategorias($nombre, $id)
@@ -53,11 +53,14 @@ class obtenercategorias
         $query->execute([$nombre, $id]);
     }
 
-    function borrarcategoria($id){
-        
-        $query = $this->db->prepare('DELETE FROM categoria WHERE ID_categoria = ?');
+    function borrarcategoria($id)
+    {
+        // Primero eliminar todos los artículos asociados a la categoría (en caso que los tenga)
+        $query = $this->db->prepare('DELETE FROM articulo WHERE ID_categoria = ?');
         $query->execute([$id]);
 
+        // Luego eliminar la categoría
+        $query = $this->db->prepare('DELETE FROM categoria WHERE ID_categoria = ?');
+        $query->execute([$id]);
     }
-    
 }
