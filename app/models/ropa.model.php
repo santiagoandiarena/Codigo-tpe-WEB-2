@@ -25,12 +25,13 @@ class RopaModel
         return $prendas;
     }
 
+
     public function getPrenda($id)
     {
         $query = $this->db->prepare('SELECT * FROM articulo WHERE ID_articulo = ?');
         $query->execute([$id]);
 
-        $prenda = $query->fetchAll(PDO::FETCH_OBJ);
+        $prenda = $query->fetch(PDO::FETCH_OBJ);
 
         return $prenda;
     }
@@ -40,11 +41,16 @@ class RopaModel
         $query->execute([$id]);
     }
 
-    function agregararticulo($nombre, $valor, $descripcion, $ID_categoria) {
+    function agregararticulo($nombre, $valor, $descripcion, $id) {
         $query = $this->db->prepare('INSERT INTO articulo (nombre, valor, descripcion, ID_categoria) VALUES (?, ?, ?, ?)');
-        $query->execute([$nombre, $valor, $descripcion, $ID_categoria]); // Incluye la categoría en el insert
+        $query->execute([$nombre, $valor, $descripcion, $id]); 
     
         return $this->db->lastInsertId();
     }
     
+    public function editarArticulo($nombre, $valor, $descripcion, $id){
+        $query = $this->db->prepare("UPDATE articulo SET nombre = ?, valor = ?, descripcion = ? WHERE ID_articulo = ?");
+        $query->execute([$nombre, $valor, $descripcion,  $id]);
+
+    }
 }

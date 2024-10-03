@@ -22,10 +22,12 @@ class RopaController
     public function showHome()
     {
 
-        // PREGUNTAR COMO SE HACEN LAS VALIDACIONES 
         $prendas = $this->model->getPrendas();
+        $categorias = $this->modelCategoria->obtenercategorias();
 
-        $this->view->showHome($prendas);
+        //$this->view->addarticulo($prendas, $categorias);
+        $this->view->showHome($prendas, $categorias);
+
     }
 
     public function showProduct($id)
@@ -33,7 +35,7 @@ class RopaController
         $prenda = $this->model->getPrenda($id); // devuelve una única prenda
 
         if (!empty($prenda)) {
-            $this->view->showProduct($prenda[0]); // Pasa la primera (y única) prenda
+            $this->view->showProduct($prenda); // Pasa la primera (y única) prenda
         } else {
             echo "Producto no encontrado";
         }
@@ -54,7 +56,8 @@ class RopaController
         }
     }
 
-    public function eliminarArticulo($id) {
+    public function eliminarArticulo($id)
+    {
         // obtengo la tarea por id
         $prenda = $this->model->getPrenda($id);
 
@@ -68,18 +71,31 @@ class RopaController
         header('Location: ' . BASE_URL);
     }
 
-    public function verArticulosAgregados() {
-        $articulos = $this->model->getPrendas();
-        $categorias = $this->modelCategoria->obtenercategorias(); // Obtener todas las categorías
-        
-        $this->view->addarticulo($articulos, $categorias); // Pasa también las categorías
+    function mostrarFormEdicion($id)
+    {
+        $prenda =  $this->model->getPrenda($id);
+        $this->view->editarArticulo($prenda);  
     }
-    
 
+    function editarArticulo($id)
+    {
+        $nombre = $_POST['nombre'];
+        $valor = $_POST['valor'];
+        $descripcion = $_POST['descripcion'];
+
+        if (empty($nombre) || empty($valor) || empty($descripcion)) {
+            echo "Todos los campos son obligatorios.";
+        } else if ($valor  < 0) {
+            echo "El valor tiene que ser positivo";
+        } else {
+            $this->model->editarArticulo($nombre, $valor, $descripcion, $id);
+
+            header("Location: " . BASE_URL . "home");
+        }
+    }
 
     public function showAbout()
     {
-
         $this->view->showAbout();
     }
 }

@@ -38,9 +38,19 @@ switch ($params[0]) {
     case 'addarticulo':
         $controller = new RopaController();
         $controller->agregararticulo();
+        break;
     case 'eliminarArticulo':
         $controller = new RopaController();
         $controller->eliminarArticulo($params[1]);
+        break;
+    case 'mostrarFormEdicion':
+        $controller = new RopaController();
+        $controller->mostrarFormEdicion($params[1]);
+        break;
+    case 'editarArticulo':
+        $controller = new RopaController();
+        $controller->editarArticulo($params[1]);
+        break;
     case 'addcategorias':
         $controller = new CategoriasController();
         $controller->agregarcategorias();
@@ -53,9 +63,9 @@ switch ($params[0]) {
         $controller = new CategoriasController();
         $controller->editarcategorias($params[1]);
         break;
-    case 'categoriaseditadas':
+    case 'borrarcategoria':
         $controller = new CategoriasController();
-        $controller->categoriaseditadas();
+        $controller->borrarcategoria($params[1]);
         break;
     default:
         echo "404 Page Not Found"; // está mal

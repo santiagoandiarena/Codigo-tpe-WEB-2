@@ -46,17 +46,24 @@ class obtenercategorias
         return $productos;
     }
 
-    function agregarcategorias($nombre, $genero, $temporada, $marca)
+    function agregarcategorias($nombre)
     {
-        $query = $this->db->prepare('INSERT INTO categoria (nombre, genero, temporada, marca) VALUES (?,?,?,?)');
-        $query->execute([$nombre, $genero, $temporada, $marca]);
+        $query = $this->db->prepare('INSERT INTO categoria (nombre) VALUES (?)');
+        $query->execute([$nombre]);
 
         return $this->db->lastInsertId(); //me da el nuevo id ingresado
     }
 
-    public function editarcategorias($nombre, $ID_categoria)
+    public function editarcategorias($nombre, $id)
     {
-        $query = $this->db->prepare('UPDATE categoria SET nombre = ? WHERE ID_categoria = ?');
-        $query->execute([$nombre, $ID_categoria]);
+        $query = $this->db->prepare('UPDATE categoria SET nombre = ? WHERE categoria.ID_categoria = ?');
+        $query->execute([$nombre, $id]);
+    }
+
+    function borrarcategoria($id){
+        
+        $query = $this->db->prepare('DELETE FROM categoria WHERE ID_categoria = ?');
+        $query->execute([$id]);
+
     }
 }

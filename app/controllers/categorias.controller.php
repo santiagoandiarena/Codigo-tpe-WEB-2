@@ -35,15 +35,12 @@ class CategoriasController
     function agregarcategorias()
     {
         $nombre = $_POST['nombre'];
-        $genero = $_POST['genero'];
-        $temporada = $_POST['temporada'];
-        $marca = $_POST['marca'];
-
-        if (empty($nombre) || empty($genero) || empty($temporada) || empty($marca)) {
+        
+        if (empty($nombre) ) {
             echo "no estan todos los datos";
         } else {
-            $this->model->agregarcategorias($nombre, $genero, $temporada, $marca);
-            header("Location:" . BASE_URL . "home");
+            $this->model->agregarcategorias($nombre);
+            header("Location:" . BASE_URL . "agregarcategorias");
 
         }
     }
@@ -56,31 +53,22 @@ class CategoriasController
 
     function editarcategorias($id)
     {
-
         $nombre = $_POST['nombre'];
-      
-
-
-
+    
         if (empty($nombre) ) {
             echo "no estan todos los datos";
         } else {
-            $this->model->editarcategorias($nombre);
+            $this->model->editarcategorias($nombre, $id);
             header("Location:" . BASE_URL . "home");
 
         }
-
-
-
     }
 
-    function categoriaseditadas(){
-        $categorias = $this->model->obtenercategorias();
-        $this->view->mostrarcategoriaseditadas($categorias);
-
+    function borrarcategoria($id)
+    {
+        $this->model->borrarcategoria($id);
+        header("Location:" . BASE_URL . "agregarcategorias");
     }
-
-
 
 
 }

@@ -18,7 +18,7 @@
                             <div>$<?= $prenda->valor ?></div>
                             <p><a href="producto/<?= $prenda->ID_articulo ?>" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ver</a></p>
                             <p>Categoria: <?= $prenda->categoria_nombre ?></p>
-                            <a href="articuloseditados?id=<?= $prenda->ID_articulo ?>" class="btn btn-success">Editar</a>
+                            <a href="mostrarFormEdicion/<?= $prenda->ID_articulo ?>" class="btn btn-success">Editar</a>
                             <a href="eliminarArticulo/<?= $prenda->ID_articulo ?>" class="btn btn-danger">Borrar</a>
                         </div>
                     </div>
@@ -53,8 +53,8 @@
         <div class="form-group">
             <label for="categoria">Categoría</label>
             <select class="form-control" name="categoria" id="categoria" required>
-                <?php foreach ($prendas as $prenda): ?>
-                    <option value="<?= $prenda->ID_categoria ?>"><?= $prenda->categoria_nombre ?></option>
+                <?php foreach ($categorias as $categoria): ?>
+                    <option value="<?= $categoria->ID_categoria ?>"><?= $categoria->nombre ?></option>
                 <?php endforeach; ?>
             </select>
         </div>

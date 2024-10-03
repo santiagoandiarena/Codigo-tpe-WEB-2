@@ -1,7 +1,7 @@
 <?php
 class RopaView
 {
-    public function showHome($prendas)
+    public function showHome($prendas, $categorias)
     {
         $count = count($prendas);
 
@@ -25,6 +25,9 @@ class RopaView
         require 'templates/mostrar_productos.phtml';
     }
 
+    public function editarArticulo($prenda){
+        require 'templates/editar_articulo.phtml';
+    }
     
     public function showError($error) {
         require 'templates/error.phtml';
