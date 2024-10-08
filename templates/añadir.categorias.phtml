@@ -37,21 +37,21 @@
         <tbody>
             <?php foreach ($categorias as $categoria): ?>
                 <tr>
-                    <td class="text-center"> <?= $categoria->nombre ?></td>
+                    <td class="text-center"> <?= htmlspecialchars($categoria->nombre) ?></td>
                     <td class="text-center">
                         <div class="container mt-5">
                             <p>Formulario para editar nombre de la categoria</p>
-                            <form action="editarcategorias/<?= $categoria->ID_categoria ?>" method="POST">
+                            <form action="editarcategorias/<?= htmlspecialchars($categoria->ID_categoria) ?>" method="POST">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese el nuevo nombre para editar  (<?= $categoria->nombre ?> )" required>
+                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese el nuevo nombre para editar  (<?= htmlspecialchars($categoria->nombre) ?> )" required>
                                 </div>
                                 <button type="submit" class="btn btn-success">Editar</button>
                             </form>
                         </div>
                     </td>
                     <td class="text-center">
-                        <p>Usted va a borrar la categoria : <?= $categoria->nombre ?> </p>
-                        <a href="borrarcategoria/<?= $categoria->ID_categoria ?>" class="btn btn-danger">Borrar</a>
+                        <p>Usted va a borrar la categoria : <?= htmlspecialchars($categoria->nombre) ?> </p>
+                        <a href="borrarcategoria/<?= $categoria->ID_categoria ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este artículo?');">Borrar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

@@ -1,9 +1,9 @@
 <?php require_once 'templates/layout/header.phtml' ?>
 
 
-<h1> <?= $prenda->nombre ?> </h1>
-<p> <?= $prenda->descripcion ?> </p>
-<p>$ <?= $prenda->valor  ?></p>
+<h1> <?= htmlspecialchars($prenda->nombre) ?> </h1>
+<p> <?= htmlspecialchars($prenda->descripcion) ?> </p>
+<p>$ <?= htmlspecialchars($prenda->valor)  ?></p>
 
 
 <?php require_once 'templates/layout/footer.phtml' ?>

@@ -3,7 +3,7 @@
 
 <div class="container mt-5">
     <h2 class="text-center">Editar Categorias</h2>
-    <form action="editarcategorias/<?= $categoria->ID_categoria ?>" method="POST">
+    <form action="editarcategorias/<?= htmlspecialchars($categoria->ID_categoria) ?>" method="POST">
 
         <div class="form-group">
             <label for="nombre">Nombre</label>

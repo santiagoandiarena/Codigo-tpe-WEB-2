@@ -2,7 +2,7 @@
 
 <ul class="list-group">
     <?php foreach ($categorias as $categoria): ?>
-        <li class="list-group-item"><a class="dropdown-item" href="productosxcategorias/<?= $categoria->ID_categoria ?>"> <?= $categoria->nombre ?> </a></li>
+        <li class="list-group-item"><a class="dropdown-item" href="productosxcategorias/<?= $categoria->ID_categoria ?>"> <?= htmlspecialchars($categoria->nombre) ?> </a></li>
     <?php endforeach;?>
 </ul>
 

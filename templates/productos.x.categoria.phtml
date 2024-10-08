@@ -15,10 +15,10 @@
                      
                         <div class="card-body">
                             
-                            <h5 class="card-title"><?= $producto->nombre ?></h5>
-                            <p class="card-text">Precio: $<?= $producto->valor ?></p>
-                            <p class="card-text">Descripción: <?= $producto->descripcion ?></p>
-                            <p class="card-text">Temporada: <?= $producto->temporada ?></p>
+                            <h5 class="card-title"><?= htmlspecialchars($producto->nombre) ?></h5>
+                            <p class="card-text">Precio: $<?= htmlspecialchars($producto->valor) ?></p>
+                            <p class="card-text">Descripción: <?= htmlspecialchars($producto->descripcion) ?></p>
+                            <p class="card-text">Temporada: <?= htmlspecialchars($producto->temporada) ?></p>
                           
                         </div>
                     </div>

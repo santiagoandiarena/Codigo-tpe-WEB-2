@@ -1,9 +1,14 @@
 <?php
-
+require_once 'libs/response.php';
+require_once 'app/middlewares/autentificador.sesion.middleware.php';
 require_once 'app/controllers/ropa.controller.php';
 require_once 'app/controllers/categorias.controller.php';
+require_once 'app/controllers/auth.controller.php';
+
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+
+$res = new Response();
 
 $action = 'home'; // accion por defecto si no se envia ninguna
 if (!empty($_GET['action'])) {
@@ -25,49 +30,70 @@ switch ($params[0]) {
         $controller = new RopaController();
         $controller->showAbout();
         break;
-
     case 'categorias':
         $controller = new CategoriasController();
         $controller->mostrarcategorias();
         break;
-
     case 'productosxcategorias':
-
         $controller = new CategoriasController();
         $controller->productosxcategorias($params[1]);
         break;
     case 'addarticulo':
+        authSessionMiddleware($res);
         $controller = new RopaController();
         $controller->agregararticulo();
         break;
+    case 'adminArticulos':
+        authSessionMiddleware($res);
+        $controller = new RopaController();
+        $controller->adminArticulos();
+        break;
     case 'eliminarArticulo':
+        authSessionMiddleware($res);
         $controller = new RopaController();
         $controller->eliminarArticulo($params[1]);
         break;
     case 'mostrarFormEdicion':
+        authSessionMiddleware($res);
         $controller = new RopaController();
         $controller->mostrarFormEdicion($params[1]);
         break;
     case 'editarArticulo':
+        authSessionMiddleware($res);
         $controller = new RopaController();
         $controller->editarArticulo($params[1]);
         break;
     case 'addcategorias':
+        authSessionMiddleware($res);
         $controller = new CategoriasController();
         $controller->agregarcategorias();
         break;
-
     case 'agregarcategorias':
+        authSessionMiddleware($res);
         $controller = new CategoriasController();
         $controller->vercategoriasagregadas();
         break;
     case 'editarcategorias':
+        authSessionMiddleware($res);
         $controller = new CategoriasController();
         $controller->editarcategorias($params[1]);
         break;
     case 'borrarcategoria':
+        authSessionMiddleware($res);
         $controller = new CategoriasController();
         $controller->borrarcategoria($params[1]);
+        break;
+    case 'mostrarLogin':
+        $controller = new AuthController();
+        $controller->showLogin();
+        break;
+    case 'login':
+        $controller = new AuthController();
+        $controller->login();
+        break;
+    case 'logout':
+        $controller = new AuthController();
+        $controller->logout();
         break;
     default:
         $controller = new RopaController();
