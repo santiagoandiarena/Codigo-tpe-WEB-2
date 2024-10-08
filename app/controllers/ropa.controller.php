@@ -32,18 +32,16 @@ class RopaController
     {
         $prendas = $this->model->getPrendas();
         $categorias = $this->modelCategoria->obtenercategorias();
+
         $this->view->adminArticulos($prendas, $categorias);
     }
 
     public function showProduct($id)
     {
         $prenda = $this->model->getPrenda($id); // devuelve una única prenda
+        $categorias = $this->modelCategoria->obtenercategorias();
 
-        if (!empty($prenda)) {
-            $this->view->showProduct($prenda); // Pasa la primera (y única) prenda
-        } else {
-            echo "Producto no encontrado";
-        }
+        $this->view->showProduct($prenda, $categorias); // Pasa la primera (y única) prenda
     }
 
     public function agregararticulo()

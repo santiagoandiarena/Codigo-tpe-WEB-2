@@ -4,6 +4,7 @@
 <h1> <?= htmlspecialchars($prenda->nombre) ?> </h1>
 <p> <?= htmlspecialchars($prenda->descripcion) ?> </p>
 <p>$ <?= htmlspecialchars($prenda->valor)  ?></p>
+<p>Categoria: <?= htmlspecialchars($prenda->categoria_nombre) ?> </p>
 
 
 <?php require_once 'templates/layout/footer.phtml' ?>

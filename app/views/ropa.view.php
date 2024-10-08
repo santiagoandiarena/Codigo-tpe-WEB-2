@@ -14,7 +14,7 @@ class RopaView
         require  'templates/mostrar_nosotros.phtml';
     }
 
-    public function showProduct($prenda)
+    public function showProduct($prenda, $categorias)
     {
         require 'templates/mostrar_producto.phtml';
     }
