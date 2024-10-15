@@ -5,3 +5,25 @@
 
 
         
+
+
+        .imagenproductos{
+            width: 130px;
+            height: 130px;
+
+           border-radius:  10px;
+           border: 2px solid rgb(0, 0, 0); 
+
+
+        }
+   
+        .imagenproductos {
+            transition: transform 0.3s ease;
+        }
+        
+        .imagenproductos:hover {
+            transform: scale(1.2); 
+        
+        
+        }
+     

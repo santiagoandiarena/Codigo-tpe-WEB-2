@@ -72,5 +72,19 @@ class CategoriasController
         header("Location:" . BASE_URL . "agregarcategorias");
     }
 
+    function mostrarimagen($id){
+
+
+        
+        $imagenes = $this->model->mostrarimagen($id);
+        if (empty($imagenes)) {
+            error_log("No se encontraron imágenes para ID: $id");
+        }
+       
+        return !empty($imagenes) && isset($imagenes[0]->Imagen) ? $imagenes[0]->Imagen : null;
+    
+   
+ }
+
 
 }

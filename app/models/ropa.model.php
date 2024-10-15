@@ -41,17 +41,39 @@ class RopaModel extends Model
         $query->execute([$id]);
     }
 
-    function agregararticulo($nombre, $valor, $descripcion, $id)
+    function agregararticulo($nombre, $valor, $descripcion, $id,$imagen)
     {
-        $query = $this->db->prepare('INSERT INTO articulo (nombre, valor, descripcion, ID_categoria) VALUES (?, ?, ?, ?)');
-        $query->execute([$nombre, $valor, $descripcion, $id]);
+        $query = $this->db->prepare('INSERT INTO articulo (nombre, valor, descripcion, ID_categoria, imagen) VALUES (?,?, ?, ?, ?)');
+        $query->execute([$nombre, $valor, $descripcion, $id, $imagen]);
 
         return $this->db->lastInsertId();
     }
 
-    public function editarArticulo($nombre, $valor, $descripcion, $id_categoria, $id)
+    public function editarArticulo($nombre, $valor, $descripcion, $id_categoria, $imagen, $id)
     {
-        $query = $this->db->prepare("UPDATE articulo SET nombre = ?, valor = ?, descripcion = ?, ID_categoria = ? WHERE ID_articulo = ?");
-        $query->execute([$nombre, $valor, $descripcion, $id_categoria, $id]);
+        $query = $this->db->prepare("UPDATE articulo SET nombre = ?, valor = ?, descripcion = ?, ID_categoria = ? , Imagen = ? WHERE ID_articulo = ?");
+        $query->execute([$nombre, $valor, $descripcion, $id_categoria, $imagen, $id]);
     }
+
+
+
+    function mostrarimagen($id){
+
+
+      
+    
+    
+        $query = $this->db->prepare('  SELECT Imagen from articulo  WHERE ID_articulo = ? ');
+    
+        $query->execute([$id]);
+    
+        $imagen = $query->fetchAll(PDO::FETCH_OBJ);
+        
+    return $imagen;
+    
+    
+    
+    
+        
+      }
 }

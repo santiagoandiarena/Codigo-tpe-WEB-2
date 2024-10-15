@@ -3,7 +3,7 @@
 <!-- Sección para Agregar Artículos -->
 <div class="container mt-5">
     <h3>Agregar Artículo</h3>
-    <form action="addarticulo" method="POST">
+    <form action="addarticulo" method="POST"  enctype="multipart/form-data">
         <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" name="nombre" id="nombre" required>
@@ -27,6 +27,12 @@
                 <?php endforeach; ?>
             </select>
         </div>
+        <div class="form-group">
+                <label for="imagen" enctype="multipart/form-data">Imagen</label>
+                <input type="file" class="form-control" name="imagen" id="imagen" accept="image/*" required>
+            </div>
+
+
 
         <button type="submit" class="btn btn-primary">Agregar Artículo</button>
     </form>

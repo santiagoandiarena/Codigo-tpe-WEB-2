@@ -95,6 +95,12 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->logout();
         break;
+
+
+        case 'imagen':
+            $controller = new CategoriasController();
+            $controller->mostrarimagen($params[1]);
+            break;
     default:
         $controller = new RopaController();
         $controller->mostrarError('404 Page Not Found');

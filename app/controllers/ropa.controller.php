@@ -50,11 +50,14 @@ class RopaController
         $valor = $_POST['valor'];
         $descripcion = $_POST['descripcion'];
         $ID_categoria = $_POST['categoria']; // Obtén la categoría seleccionada
+        $imagen = $_FILES['imagen'];
 
-        if (empty($nombre) || empty($valor) || empty($descripcion) || empty($ID_categoria)) {
+        if (empty($nombre) || empty($valor) || empty($descripcion) || empty($ID_categoria) || empty($imagen)) {
             echo "no están todos los datos";
         } else {
-            $this->model->agregararticulo($nombre, $valor, $descripcion, $ID_categoria);
+            $imagenData = file_get_contents($imagen['tmp_name']);
+
+            $this->model->agregararticulo($nombre, $valor, $descripcion, $ID_categoria, $imagenData);
             header("Location:" . BASE_URL . "home");
         }
     }
@@ -87,14 +90,18 @@ class RopaController
         $valor = $_POST['valor'];
         $descripcion = $_POST['descripcion'];
         $ID_categoria = $_POST['categoria']; // Obtén la categoría seleccionada del formulario
+        $imagen= $_FILES['imagen'];
+       
 
-        if (empty($nombre) || empty($valor) || empty($descripcion) || empty($ID_categoria)) {
+
+        if (empty($nombre) || empty($valor) || empty($descripcion) || empty($ID_categoria) || empty($imagen)) {
             echo "Todos los campos son obligatorios.";
         } else if ($valor < 0) {
             echo "El valor tiene que ser positivo";
         } else {
+            $imagenData = file_get_contents($imagen['tmp_name']);
             // Asegúrate de que la categoría también se actualice en la base de datos
-            $this->model->editarArticulo($nombre, $valor, $descripcion, $ID_categoria, $id);
+            $this->model->editarArticulo($nombre, $valor, $descripcion, $ID_categoria,$imagenData, $id);
 
             header("Location: " . BASE_URL . "home");
         }
@@ -110,4 +117,20 @@ class RopaController
     {
         $this->view->showError($error);
     }
+
+
+
+    function mostrarimagen($id){
+
+
+        
+        $imagenes = $this->model->mostrarimagen($id);
+        if (empty($imagenes)) {
+            error_log("No se encontraron imágenes para ID: $id");
+        }
+        
+        return !empty($imagenes) && isset($imagenes[0]->Imagen) ? $imagenes[0]->Imagen : null;
+    
+ 
+ }
 }
