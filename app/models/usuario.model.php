@@ -1,11 +1,10 @@
 <?php
 
-class UsuarioModel {
-    private $db;
+require_once 'app/models/model.php';
 
-    public function __construct() {
-       $this->db = new PDO('mysql:host=localhost;dbname=g84_db_tiendaropa;charset=utf8', 'root', '');
-    }
+
+class UsuarioModel extends Model {
+ 
  
     public function getUserByName($nombreUsuario) {    
         $query = $this->db->prepare("SELECT * FROM usuario WHERE nombreUsuario = ?");

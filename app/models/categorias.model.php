@@ -1,12 +1,9 @@
 <?php
-class obtenercategorias
-{
-    private $db;
+require_once 'app/models/model.php';
 
-    function __construct()
-    {
-        $this->db = new PDO('mysql:host=localhost;' . 'dbname=g84_db_tiendaropa;charset=utf8', 'root', '');
-    }
+class obtenercategorias extends Model
+{
+ 
 
     function obtenercategorias()
     {

@@ -1,13 +1,10 @@
 <?php
+require_once 'app/models/model.php';
 
-class RopaModel
+
+class RopaModel extends Model
 {
-    private $db;
-
-    public function __construct()
-    {
-        $this->db = new PDO('mysql:host=localhost;dbname=g84_db_tiendaropa;charset=utf8', 'root', '');
-    }
+    
 
     //METODOS
 
