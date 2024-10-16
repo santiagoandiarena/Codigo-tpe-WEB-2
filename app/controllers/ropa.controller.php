@@ -50,17 +50,22 @@ class RopaController
         $valor = $_POST['valor'];
         $descripcion = $_POST['descripcion'];
         $ID_categoria = $_POST['categoria']; // Obtén la categoría seleccionada
-        $imagen = $_FILES['imagen'];
+        $imagen = $_POST['imagen']; // Recibe la URL de la imagen
 
         if (empty($nombre) || empty($valor) || empty($descripcion) || empty($ID_categoria) || empty($imagen)) {
-            echo "no están todos los datos";
+            echo "No están todos los datos";
         } else {
-            $imagenData = file_get_contents($imagen['tmp_name']);
+            // Opcional: Validar que $imagen sea una URL válida
+            if (!filter_var($imagen, FILTER_VALIDATE_URL)) {
+                echo "La URL de la imagen no es válida.";
+                return;
+            }
 
-            $this->model->agregararticulo($nombre, $valor, $descripcion, $ID_categoria, $imagenData);
+            $this->model->agregararticulo($nombre, $valor, $descripcion, $ID_categoria, $imagen);
             header("Location:" . BASE_URL . "home");
         }
     }
+
 
     public function eliminarArticulo($id)
     {
@@ -86,26 +91,31 @@ class RopaController
 
     function editarArticulo($id)
     {
+
         $nombre = $_POST['nombre'];
         $valor = $_POST['valor'];
         $descripcion = $_POST['descripcion'];
         $ID_categoria = $_POST['categoria']; // Obtén la categoría seleccionada del formulario
-        $imagen= $_FILES['imagen'];
-       
-
+        $imagen = $_POST['imagen']; // Recibe la URL de la imagen
 
         if (empty($nombre) || empty($valor) || empty($descripcion) || empty($ID_categoria) || empty($imagen)) {
             echo "Todos los campos son obligatorios.";
         } else if ($valor < 0) {
             echo "El valor tiene que ser positivo";
         } else {
-            $imagenData = file_get_contents($imagen['tmp_name']);
+            // Validar que $imagen sea una URL válida
+            if (!filter_var($imagen, FILTER_VALIDATE_URL)) {
+                echo "La URL de la imagen no es válida.";
+                return;
+            }
+
             // Asegúrate de que la categoría también se actualice en la base de datos
-            $this->model->editarArticulo($nombre, $valor, $descripcion, $ID_categoria,$imagenData, $id);
+            $this->model->editarArticulo($nombre, $valor, $descripcion, $ID_categoria, $imagen, $id);
 
             header("Location: " . BASE_URL . "home");
         }
     }
+
 
 
     public function showAbout()
@@ -117,20 +127,4 @@ class RopaController
     {
         $this->view->showError($error);
     }
-
-
-
-    function mostrarimagen($id){
-
-
-        
-        $imagenes = $this->model->mostrarimagen($id);
-        if (empty($imagenes)) {
-            error_log("No se encontraron imágenes para ID: $id");
-        }
-        
-        return !empty($imagenes) && isset($imagenes[0]->Imagen) ? $imagenes[0]->Imagen : null;
-    
- 
- }
 }

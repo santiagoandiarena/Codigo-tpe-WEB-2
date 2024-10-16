@@ -57,23 +57,5 @@ class RopaModel extends Model
 
 
 
-    function mostrarimagen($id){
 
-
-      
-    
-    
-        $query = $this->db->prepare('  SELECT Imagen from articulo  WHERE ID_articulo = ? ');
-    
-        $query->execute([$id]);
-    
-        $imagen = $query->fetchAll(PDO::FETCH_OBJ);
-        
-    return $imagen;
-    
-    
-    
-    
-        
-      }
 }

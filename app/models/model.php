@@ -37,7 +37,8 @@ CREATE TABLE `articulo` (
   `nombre` varchar(80) NOT NULL,
   `valor` int(11) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
-  `ID_categoria` int(11) NOT NULL
+  `ID_categoria` int(11) NOT NULL,
+  `Imagen` varchar(100) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

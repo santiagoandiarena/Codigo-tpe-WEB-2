@@ -10,27 +10,14 @@
                 <div class="col-md-6 mb-4">
                     <div class="row g-0 bg-body-secondary position-relative">
                         <div class="position-absolute top-50 start-50">
-                            
 
-                        <?php
-      $controller = new RopaController (); 
-    // Obtener la imagen usando el ID de la categoría
-    $imagen = $controller->mostrarimagen($prenda->ID_articulo);
-
-    $base64 = base64_encode($imagen);
-    ?>
-    
-    <?php if ($base64): ?>
-
-      
-        <img src='data:image/webp;base64,<?= $base64 ?>' class='imagenproductos'   alt='Imagen de la categoría '      >
-    <?php else: ?>
-        <p>No se encontró la imagen.</p>
-    <?php endif; ?>
+                            <?php if (!empty($prenda->Imagen)): ?>
+                                <a href="producto/<?= htmlspecialchars($prenda->ID_articulo) ?>"><img src="<?= htmlspecialchars($prenda->Imagen) ?>" class="imagenproductos img-fluid" alt="<?= htmlspecialchars($prenda->nombre) ?>"></a>
+                            <?php else: ?>
+                                <p>No se encontró la imagen.</p>
+                            <?php endif; ?>
 
 
-
-                        
                         </div>
                         <div class="col-md-6 p-4 ps-md-0">
                             <h5 class="mt-0"><?= htmlspecialchars($prenda->nombre) ?></h5>

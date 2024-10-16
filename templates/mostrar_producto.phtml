@@ -5,20 +5,12 @@
 <p> <?= htmlspecialchars($prenda->descripcion) ?> </p>
 <p>$ <?= htmlspecialchars($prenda->valor)  ?></p>
 <p>Categoria: <?= htmlspecialchars($prenda->categoria_nombre) ?> </p>
+
 <?php
-      $controller = new RopaController (); 
-
-    $imagen = $controller->mostrarimagen($prenda->ID_articulo);
-
-    $base64 = base64_encode($imagen);
-    ?>
-    
-    <?php if ($base64): ?>
-
-        <p> <?= $prenda->nombre ?> </p>
-        <img src='data:image/webp;base64,<?= $base64 ?>' class='imagenproductos'   alt='Imagen de la categoría '      >
-    <?php else: ?>
-        <p>No se encontró la imagen.</p>
-    <?php endif; ?>
+if ($prenda->Imagen != ''): ?>
+    <img src="<?= htmlspecialchars($prenda->Imagen) ?>" class="imagenproductos" alt="Imagen de la categoría">
+<?php else: ?>
+    <p>No se encontró la imagen.</p>
+<?php endif; ?>
 
 <?php require_once 'templates/layout/footer.phtml' ?>
