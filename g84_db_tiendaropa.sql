@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2024 a las 20:18:20
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 16-10-2024 a las 22:14:30
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `articulo` (
   `valor` int(11) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
   `ID_categoria` int(11) NOT NULL,
-  `Imagen` blob NOT NULL
+  `Imagen` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -41,10 +41,10 @@ CREATE TABLE `articulo` (
 --
 
 INSERT INTO `articulo` (`ID_articulo`, `nombre`, `valor`, `descripcion`, `ID_categoria`, `Imagen`) VALUES
-(2, 'Remera gris', 15000, 'Remera color gris manga larga  ', 1, ''),
-(3, 'Buzo negro largo', 30000, 'Buzo color negro oversize hombre-mujer', 4, ''),
-(4, 'Pantalon rojo', 20000, 'Pantalon largo color rojo con detalles azules', 2, ''),
-(5, 'Campera con capucha', 40000, 'Campera tipo rompevientos con capucha para invierno', 3, '');
+(2, 'Remera gris', 15000, 'Remera color gris manga corta', 1, 'https://www.segutecnica.com/thumb/000000000001756537023remera-gris-segutecnica_800x800.png'),
+(3, 'Buzo negro largo', 30000, 'Buzo color negro oversize hombre-mujer', 4, 'https://http2.mlstatic.com/D_NQ_NP_628470-MLA47818791473_102021-O.webp'),
+(4, 'Pantalon rojo', 20000, 'Pantalon largo color rojo con detalles azules', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoPp06GH0Yaw35t8eOHh-0mk0ij-u690iQ0g&s'),
+(5, 'Campera con capucha', 40000, 'Campera tipo rompevientos con capucha para invierno', 3, 'https://www.nakaoutdoors.com.ar/img/articulos/2022/12/epic_jannu_campera_rompeviento_imagen1.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -65,7 +65,7 @@ ALTER TABLE `articulo`
 -- AUTO_INCREMENT de la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  MODIFY `ID_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `ID_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- Restricciones para tablas volcadas
