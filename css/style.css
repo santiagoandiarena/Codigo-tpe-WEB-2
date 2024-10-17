@@ -1,29 +1,36 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
+.imagenproductos {
+    width: 200px; 
+    height: 200px;
+    border-radius: 10px;
+    border: 2px solid rgb(0, 0, 0);
+    transition: transform 0.3s ease;
+    object-fit: cover; 
+    object-position: center; 
+}
+
+.imagenproductos:hover {
+    transform: scale(1.2); 
+}
+
+.articulo {
+    border: 2px solid black; 
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa; 
+}
+
+.imagenproducto {
+    width: 90%; /* La imagen ocupará todo el ancho disponible */
+    height: auto; /* Mantiene las proporciones */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-top: 15px; /* Espacio superior entre el texto y la imagen */
+    object-fit: cover; /* Ajuste de la imagen dentro del contenedor */
+}
 
 
-        
 
-
-        .imagenproductos{
-            width: 130px;
-            height: 130px;
-
-           border-radius:  10px;
-           border: 2px solid rgb(0, 0, 0); 
-
-
-        }
-   
-        .imagenproductos {
-            transition: transform 0.3s ease;
-        }
-        
-        .imagenproductos:hover {
-            transform: scale(1.2); 
-        
-        
-        }
-     
