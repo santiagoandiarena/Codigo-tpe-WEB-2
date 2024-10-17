@@ -11,25 +11,25 @@ class AuthController {
         $this->view = new AuthView();
     }
 
-    public function showLogin() {
+    public function mostrarLogin() {
         // Muestro el formulario de login
-        return $this->view->showLogin();
+        return $this->view->mostrarLogin();
     }
 
     public function login() {
         if (!isset($_POST['nombreUsuario']) || empty($_POST['nombreUsuario'])) {
-            return $this->view->showLogin('Falta completar el Nombre de Usuario');
+            return $this->view->mostrarLogin('Falta completar el Nombre de Usuario');
         }
     
         if (!isset($_POST['password']) || empty($_POST['password'])) {
-            return $this->view->showLogin('Falta completar la contraseña');
+            return $this->view->mostrarLogin('Falta completar la contraseña');
         }
     
         $nombreUsuario = $_POST['nombreUsuario'];
         $password = $_POST['password'];
     
         // Verificar que el usuario está en la base de datos
-        $userFromDB = $this->model->getUserByName($nombreUsuario);
+        $userFromDB = $this->model->obtenerUsuarioPorNombre($nombreUsuario);
 
         // password: 123456
         // $userFromDB->password: $2y$10$xQop0wF1YJ/dKhZcWDqHceUM96S04u73zGeJtU80a1GmM.H5H0EHC
@@ -43,7 +43,7 @@ class AuthController {
             // Redirijo al home
             header('Location: ' . BASE_URL);
         } else {
-            return $this->view->showLogin('Datos de inicio de sesión incorrectos');
+            return $this->view->mostrarLogin('Datos de inicio de sesión incorrectos');
 
         }
     }

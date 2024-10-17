@@ -3,36 +3,36 @@ class RopaView
 {
 
 
-    public function showHome($prendas, $categorias)
+    public function mostrarHome($prendas, $categorias)
     {
         $count = count($prendas);
-        require 'templates/mostrar_productos.phtml';
+        require 'templates/mostrar.productos.phtml';
     }
 
-    public function showAbout()
+    public function mostrarNosotros()
     {
-        require  'templates/mostrar_nosotros.phtml';
+        require  'templates/mostrar.nosotros.phtml';
     }
 
-    public function showProduct($prenda, $categorias)
+    public function mostrarProducto($prenda, $categorias)
     {
-        require 'templates/mostrar_producto.phtml';
+        require 'templates/mostrar.producto.phtml';
     }
 
-    public function addarticulo($articulo, $categorias){
-        require 'templates/mostrar_productos.phtml';
+    public function agregarArticulo($articulo, $categorias){
+        require 'templates/mostrar.productos.phtml';
     }
 
     public function editarArticulo($prenda,  $categorias){
 
-        require 'templates/editar_articulo.phtml';
+        require 'templates/editar.articulo.phtml';
     }
     
-    public function adminArticulos($prendas, $categorias){
-        require 'templates/admin_articulos.phtml';
+    public function administrarArticulos($prendas, $categorias){
+        require 'templates/administrar.articulos.phtml';
     }
 
-    public function showError($error) {
+    public function mostrarError($error) {
         require 'templates/error.phtml';
     }
 }

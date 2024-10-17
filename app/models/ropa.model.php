@@ -8,7 +8,7 @@ class RopaModel extends Model
 
     //METODOS
 
-    public function getPrendas()
+    public function obtenerPrendas()
     {
         $query = $this->db->prepare('SELECT articulo.*, categoria.nombre AS categoria_nombre FROM articulo JOIN categoria ON articulo.ID_categoria = categoria.ID_categoria');
         $query->execute();
@@ -19,7 +19,7 @@ class RopaModel extends Model
     }
 
 
-    public function getPrenda($id)
+    public function obtenerPrenda($id)
     {
         $query = $this->db->prepare('
         SELECT articulo.*, categoria.nombre AS categoria_nombre 

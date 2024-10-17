@@ -3,8 +3,8 @@
 }
 
 .imagenproductos {
-    width: 200px; 
-    height: 200px;
+    width: 70%; 
+    height: 300px;
     border-radius: 10px;
     border: 2px solid rgb(0, 0, 0);
     transition: transform 0.3s ease;
@@ -25,12 +25,24 @@
 }
 
 .imagenproducto {
-    width: 90%; /* La imagen ocupará todo el ancho disponible */
-    height: auto; /* Mantiene las proporciones */
-    border-radius: 10px; /* Bordes redondeados */
-    margin-top: 15px; /* Espacio superior entre el texto y la imagen */
-    object-fit: cover; /* Ajuste de la imagen dentro del contenedor */
+    width: 90%; 
+    height: auto; 
+    border-radius: 10px; 
+    margin-top: 15px; 
+    object-fit: cover; 
 }
+
+.imagenproductoscat {
+    width: 100%; 
+    height: 450px; 
+    object-fit: cover; 
+    object-position: center; 
+    border-radius: 10px; 
+    border: 1px solid black; 
+    transition: transform 0.3s ease; 
+}
+
+
 
 
 

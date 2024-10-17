@@ -20,15 +20,15 @@ $params = explode('/', $action);
 switch ($params[0]) {
     case 'home':
         $controller = new RopaController();
-        $controller->showHome();
+        $controller->mostrarHome();
         break;
     case 'producto':
         $controller = new RopaController();
-        $controller->showProduct($params[1]);
+        $controller->mostrarProducto($params[1]);
         break;
     case 'about':
         $controller = new RopaController();
-        $controller->showAbout();
+        $controller->mostrarNosotros();
         break;
     case 'categorias':
         $controller = new CategoriasController();
@@ -38,15 +38,15 @@ switch ($params[0]) {
         $controller = new CategoriasController();
         $controller->productosxcategorias($params[1]);
         break;
-    case 'addarticulo':
+    case 'agregarArticulo':
         authSessionMiddleware($res);
         $controller = new RopaController();
         $controller->agregararticulo();
         break;
-    case 'adminArticulos':
+    case 'administrarArticulos':
         authSessionMiddleware($res);
         $controller = new RopaController();
-        $controller->adminArticulos();
+        $controller->administrarArticulos();
         break;
     case 'eliminarArticulo':
         authSessionMiddleware($res);
@@ -63,7 +63,7 @@ switch ($params[0]) {
         $controller = new RopaController();
         $controller->editarArticulo($params[1]);
         break;
-    case 'addcategorias':
+    case 'agregarCategorias':
         authSessionMiddleware($res);
         $controller = new CategoriasController();
         $controller->agregarcategorias();
@@ -85,7 +85,7 @@ switch ($params[0]) {
         break;
     case 'mostrarLogin':
         $controller = new AuthController();
-        $controller->showLogin();
+        $controller->mostrarLogin();
         break;
     case 'login':
         $controller = new AuthController();
@@ -95,12 +95,6 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->logout();
         break;
-
-
-        case 'imagen':
-            $controller = new CategoriasController();
-            $controller->mostrarimagen($params[1]);
-            break;
     default:
         $controller = new RopaController();
         $controller->mostrarError('404 Page Not Found');

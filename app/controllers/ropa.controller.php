@@ -18,30 +18,30 @@ class RopaController
 
     //METODOS
 
-    public function showHome()
+    public function mostrarHome()
     {
 
-        $prendas = $this->model->getPrendas();
+        $prendas = $this->model->obtenerPrendas();
         $categorias = $this->modelCategoria->obtenercategorias();
 
-        //$this->view->addarticulo($prendas, $categorias);
-        $this->view->showHome($prendas, $categorias);
+        //$this->view->agregarArticulo($prendas, $categorias);
+        $this->view->mostrarHome($prendas, $categorias);
     }
 
-    public function adminArticulos()
+    public function administrarArticulos()
     {
-        $prendas = $this->model->getPrendas();
+        $prendas = $this->model->obtenerPrendas();
         $categorias = $this->modelCategoria->obtenercategorias();
 
-        $this->view->adminArticulos($prendas, $categorias);
+        $this->view->administrarArticulos($prendas, $categorias);
     }
 
-    public function showProduct($id)
+    public function mostrarProducto($id)
     {
-        $prenda = $this->model->getPrenda($id); // devuelve una única prenda
+        $prenda = $this->model->obtenerPrenda($id); // devuelve una única prenda
         $categorias = $this->modelCategoria->obtenercategorias();
 
-        $this->view->showProduct($prenda, $categorias); // Pasa la primera (y única) prenda
+        $this->view->mostrarProducto($prenda, $categorias); // Pasa la primera (y única) prenda
     }
 
     public function agregararticulo()
@@ -70,10 +70,10 @@ class RopaController
     public function eliminarArticulo($id)
     {
         // obtengo la tarea por id
-        $prenda = $this->model->getPrenda($id);
+        $prenda = $this->model->obtenerPrenda($id);
 
         if (!$prenda) {
-            return $this->view->showError("No existe la tarea con el id= $id");
+            return $this->view->mostrarError("No existe la tarea con el id= $id");
         }
 
         // borro la tarea y redirijo
@@ -84,7 +84,7 @@ class RopaController
 
     function mostrarFormEdicion($id)
     {
-        $prenda =  $this->model->getPrenda($id);
+        $prenda =  $this->model->obtenerPrenda($id);
         $categorias = $this->modelCategoria->obtenercategorias();
         $this->view->editarArticulo($prenda, $categorias);
     }
@@ -118,13 +118,13 @@ class RopaController
 
 
 
-    public function showAbout()
+    public function mostrarNosotros()
     {
-        $this->view->showAbout();
+        $this->view->mostrarNosotros();
     }
 
     public function mostrarError($error)
     {
-        $this->view->showError($error);
+        $this->view->mostrarError($error);
     }
 }
