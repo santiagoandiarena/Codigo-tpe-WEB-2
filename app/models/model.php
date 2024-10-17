@@ -32,7 +32,7 @@ CREATE TABLE `articulo` (
   `valor` int(11) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
   `ID_categoria` int(11) NOT NULL,
-  `Imagen` varchar(100) NOT NULL,
+  `Imagen` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `articulo` (
 --
 
 INSERT INTO `articulo` (`ID_articulo`, `nombre`, `valor`, `descripcion`, `ID_categoria`, `Imagen`) VALUES
-(2, 'Remera gris', 15000, 'Remera color gris manga larga  ', 1, 'https://www.segutecnica.com/thumb/000000000001756537023remera-gris-segutecnica_800x800.png'),
+(2, 'Remera gris', 15000, 'Remera color gris manga corta', 1, 'https://www.segutecnica.com/thumb/000000000001756537023remera-gris-segutecnica_800x800.png'),
 (3, 'Buzo negro largo', 30000, 'Buzo color negro oversize hombre-mujer', 4, 'https://http2.mlstatic.com/D_NQ_NP_628470-MLA47818791473_102021-O.webp'),
 (4, 'Pantalon rojo', 20000, 'Pantalon largo color rojo con detalles azules', 2, 'https://s3.sa-east-1.amazonaws.com/www.vaypol.com.ar/variants/yyvdgz1w6fy3t23buslj3f8ywusz/77e513bcd3762f47919c96f85e400038a39acdbb0d268f51c1fd98fe5327bd96'),
 (5, 'Campera con capucha', 40000, 'Campera tipo rompevientos con capucha para invierno', 3, 'https://www.nakaoutdoors.com.ar/img/articulos/2022/12/epic_jannu_campera_rompeviento_imagen1.jpg');
