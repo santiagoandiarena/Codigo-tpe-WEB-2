@@ -22,6 +22,7 @@ class AuthController {
         }
     
         if (!isset($_POST['password']) || empty($_POST['password'])) {
+         
             return $this->view->mostrarLogin('Falta completar la contraseña');
         }
     
@@ -33,6 +34,8 @@ class AuthController {
 
         // password: 123456
         // $userFromDB->password: $2y$10$xQop0wF1YJ/dKhZcWDqHceUM96S04u73zGeJtU80a1GmM.H5H0EHC
+
+        if($userFromDB){
         if(password_verify($password, $userFromDB->contraseña)){
             // Guardo en la sesión el ID del usuario
             session_start();
@@ -46,6 +49,12 @@ class AuthController {
             return $this->view->mostrarLogin('Datos de inicio de sesión incorrectos');
 
         }
+    }
+    else {
+        return $this->view->mostrarLogin('Datos de inicio de sesión incorrectos');
+
+    }
+
     }
 
     public function logout() {
